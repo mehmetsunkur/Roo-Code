@@ -26,6 +26,7 @@ import { migrateSettings } from "./utils/migrateSettings"
 
 import { handleUri, registerCommands, registerCodeActions, registerTerminalActions } from "./activate"
 import { formatLanguage } from "./shared/language"
+import { activateAosCode } from "./aos/activate"
 
 /**
  * Built using https://github.com/microsoft/vscode-webview-ui-toolkit
@@ -121,7 +122,9 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Implements the `RooCodeAPI` interface.
 	const socketPath = process.env.ROO_CODE_IPC_SOCKET_PATH
 	const enableLogging = typeof socketPath === "string"
-	return new API(outputChannel, provider, socketPath, enableLogging)
+	const rooApi = new API(outputChannel, provider, socketPath, enableLogging)
+	activateAosCode(context, rooApi, provider)
+	return rooApi
 }
 
 // This method is called when your extension is deactivated
