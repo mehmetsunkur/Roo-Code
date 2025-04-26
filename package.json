@@ -1,9 +1,9 @@
 {
-	"name": "roo-cline",
+	"name": "aos-code",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
-	"publisher": "RooVeterinaryInc",
-	"version": "3.14.1",
+	"publisher": "PiksarAi",
+	"version": "1003.14.1",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
