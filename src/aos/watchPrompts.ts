@@ -1,5 +1,4 @@
 import * as vscode from "vscode"
-import { RooCodeAPI } from "../exports/roo-code"
 
 export async function watchPrompts(context: vscode.ExtensionContext, outputChannel: vscode.OutputChannel) {
 	// Create file system watchers for system.prmt and iterate.prmt

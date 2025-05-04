@@ -32,8 +32,7 @@ export async function logTheTask(
 		outputChannel.appendLine("No provider found")
 		return
 	}
-	const { historyItem, taskDirPath, apiConversationHistoryFilePath, uiMessagesFilePath, apiConversationHistory } =
-		await provider.getTaskWithId(taskId)
+	const { taskDirPath } = await provider.getTaskWithId(taskId)
 
 	const taskDir = taskDirPath
 	const systemPromptJson = path.join(taskDir, "system_prompt.json")

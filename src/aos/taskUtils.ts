@@ -4,7 +4,6 @@ import * as os from "os"
 import * as path from "path"
 
 import { RooCodeAPI } from "../exports/roo-code"
-import { DiffStrategy } from "../shared/tools"
 import { defaultModeSlug, getGroupName, getModeBySlug } from "../shared/modes"
 import { buildApiHandler } from "../api"
 import { ClineProvider } from "../core/webview/ClineProvider"
@@ -114,8 +113,6 @@ export async function generateTaskConfig(cline: RooCodeAPI, provider: ClineProvi
 	const currentApiConfigMeta = cline
 		.getConfiguration()
 		.listApiConfigMeta?.find((meta) => meta.name === currentApiConfigName)
-	const currentApiConfigId = currentApiConfigMeta?.id
-	const currentApiConfigModel = cline.getConfiguration().apiModelId
 	const currentApiProvider = currentApiConfigMeta?.apiProvider
 	if (!currentApiProvider) {
 		throw new Error("No API provider found")
