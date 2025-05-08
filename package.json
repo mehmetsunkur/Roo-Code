@@ -2,8 +2,8 @@
 	"name": "aos-code",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
-	"publisher": "PiksarAi",
-	"version": "1003.14.1",
+	"publisher": "RooVeterinaryInc",
+	"version": "3.16.2",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
