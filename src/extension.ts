@@ -23,6 +23,7 @@ import { telemetryService } from "./services/telemetry/TelemetryService"
 import { API } from "./exports/api"
 import { migrateSettings } from "./utils/migrateSettings"
 import { formatLanguage } from "./shared/language"
+import { activateAosCode } from "./aos/activate"
 
 import {
 	handleUri,
@@ -128,7 +129,9 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Implements the `RooCodeAPI` interface.
 	const socketPath = process.env.ROO_CODE_IPC_SOCKET_PATH
 	const enableLogging = typeof socketPath === "string"
-	return new API(outputChannel, provider, socketPath, enableLogging)
+	const rooApi = new API(outputChannel, provider, socketPath, enableLogging)
+	activateAosCode(context, rooApi, provider)
+	return rooApi
 }
 
 // This method is called when your extension is deactivated
